@@ -11,9 +11,13 @@ build_script:
   - yarn build   # команда сборки
 test_script:
   - yarn run lint # скрипт сборки
+environment:
+  my_variable:
+    secure: /qguIJWgz8W5dglFoi/dHp76Tv2L5HqKcpbSxOZJ57wJPwwRJq6W5xEpGYRZxGZ9
+    
 deploy_script: # скрипт развёртывания
 - git config --global credential.helper store
-- git config --global user.name Vestanu
-- git config --global user.email tatianapenkova@gmail.com
+- git config --global user.name AppVeyor
+- git config --global user.email ci@appveyor.com
 - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
 - npx push-dir --dir=dist --branch=gh-pages --force --verbose
