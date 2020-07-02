@@ -1,6 +1,6 @@
 export default class GameBoard {
   constructor(size) {
-    this.boardSize = size * size;
+    this.boardSize = size ** 2;
     this.board = document.getElementsByClassName('board').item(0);
     this.fields = undefined;
   }
